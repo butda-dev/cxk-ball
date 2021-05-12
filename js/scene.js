@@ -158,8 +158,8 @@ class Score {
     let s = {
       x: _main.score_x,                               // x轴坐标
       y: _main.score_y,                               // y轴坐标
-      text: '分数：',                                 // 文本分数
-      textLv: '关卡：',                               // 关卡文本
+      text: 'fraction:',                                 // 文本分数
+      textLv: 'Checkup：',                               // 关卡文本
       score: 200,                                     // 每个砖块对应分数
       allScore: 0,                                    // 总分
       blockList: _main.blockList,                     // 砖块对象集合

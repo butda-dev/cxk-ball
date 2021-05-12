@@ -81,7 +81,7 @@ class Game {
     // 绘制提示文字
     this.context.font = '32px Microsoft YaHei'
     this.context.fillStyle = '#000'
-    this.context.fillText('CXK，你球掉了！得分：' + globalScore, 404, 226)
+    this.context.fillText('CXK，You are getting off!Score:' + globalScore, 404, 226)
 	$("#ballspeedset").removeAttr("disabled");
 	// audio.pause();
 	globalScore = 0;
@@ -98,7 +98,7 @@ class Game {
     // 绘制提示文字
     this.context.font = '32px Microsoft YaHei'
     this.context.fillStyle = '#000'
-    this.context.fillText('CXK，下一关！', 308, 226)
+    this.context.fillText('CXK，next level!', 308, 226)
 	// audio.pause();
   }
   // 游戏通关
@@ -113,7 +113,7 @@ class Game {
     // 绘制提示文字
     this.context.font = '32px Microsoft YaHei'
     this.context.fillStyle = '#000'
-    this.context.fillText('CXK，通关！总分：' + globalScore, 308, 226)
+    this.context.fillText('CXK，Clearance!Total：' + globalScore, 308, 226)
 	$("#ballspeedset").removeAttr("disabled");
 	// audio.pause();
 	globalScore = 0;

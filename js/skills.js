@@ -21,7 +21,7 @@ class Skill {
     } else if(typeof keyCode === 'string' && keyCode.length === 1) {
       this.keyCode = keyCode.toUpperCase().charCodeAt(0);
     } else {
-      throw new Error(`技能${name}无法绑定按键${keyCode}`);
+      throw new Error(`skill${name}Unable to bind buttons${keyCode}`);
     }
     this.lastCastTime = 0; // Date.now();
 
@@ -37,13 +37,13 @@ class Skill {
           this.cast();
         } catch (e) {
           // TODO 使用更好的方式提示
-          console.log('技能释放失败：', e.message);
+          console.log('Skill release failed：', e.message);
         }
       }
     });
     // TODO 通过canvas将技能名称、图标、描述、快捷键等显示出来
     const keyName = typeof this.keyCode === 'number' ? String.fromCharCode(this.keyCode) : this.keyCode.map(key => String.fromCharCode(key)).join('/');
-    console.log(`cxk已加载技能：${keyName}-${this.name}`);
+    console.log(`cxk Loaded skills：${keyName}-${this.name}`);
   }
 
   /**
@@ -51,23 +51,23 @@ class Skill {
    */
   cast() {
     if (this.lastCastTime + this.cd * 1000 > Date.now()) {
-      throw new Error('技能尚未冷却');
+      throw new Error('Skills have not yet cooling');
     } else if (this.main.score.allScore < this.cost) {
-      throw new Error('积分不足');
+      throw new Error('Unfour points');
     }
     this.lastCastTime = Date.now(); // 更新上次释放时间
     this.main.score.allScore -= this.cost;  // 扣除积分
     // TODO 显示释放技能的特效
-    console.log(`cxk消耗了${this.cost}积分发动了技能——${this.name}！\n${this.desc}`)
+    console.log(`cxk Consume${this.cost}Points launched skills——${this.name}！\n${this.desc}`)
   }
 }
 
 class SkillQ extends Skill {
   constructor(main) {
     super(main,
-      '意念控球',
+      'Idea',
       '',
-      'cxk使用意念控制球转向一次，直接命中最近的一个砖块',
+      'cxk Use the idea to control the ball once, direct hit a closest brick',
       10,
       1000,
       'Q');
@@ -109,9 +109,9 @@ class SkillQ extends Skill {
 class SkillW extends Skill {
   constructor(main) {
     super(main,
-      '虚鲲鬼步',
+      'Faint',
       '',
-      'cxk发动在美国校队时领悟的绝技，5秒内可以100%接住篮球',
+      'cxk Statement techniques that launched in the US school team, can receive 100% of basketball within 5 seconds',
       10,
       1000,
       'W');
